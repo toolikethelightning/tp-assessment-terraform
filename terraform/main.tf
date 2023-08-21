@@ -34,3 +34,13 @@ module "elb" {
   load_balancer_subnet_b = module.vpc.load_balancer_subnet_b
   hello_vpc = module.vpc.hello_vpc
 }
+
+module "ecs" {
+  source = "./modules/ecs"
+  ecs_role = data.aws_iam_role.ecs_role
+  ecs_sg = module.vpc.ecs_sg
+  ecs_subnet_a = module.vpc.ecs_subnet_a
+  ecs_subnet_b = module.vpc.ecs_subnet_b
+  ecs_target_group = module.elb.ecs_target_group
+  ecr_path = module.ecr.ecr_path
+}
