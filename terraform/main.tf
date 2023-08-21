@@ -44,3 +44,9 @@ module "ecs" {
   ecs_target_group = module.elb.ecs_target_group
   ecr_path = module.ecr.ecr_path
 }
+
+module "auto_scaling" {
+  source = "./modules/autoscaling"
+  ecs_cluster = module.ecs.ecs_cluster
+  ecs_service = module.ecs.ecs_service
+}
