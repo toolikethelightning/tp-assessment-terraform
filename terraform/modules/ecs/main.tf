@@ -3,10 +3,6 @@ resource "aws_ecs_cluster" "hello_app_ecs_cluster" {
     capacity_providers = ["FARGATE"]
 }
 
-resource "aws_cloudwatch_log_group" "hello_app_log_group" {
-  name = "hello-app"
-}
-
 resource "aws_ecs_task_definition" "hello_app_task_definition" {
   family = "hello_app"
   container_definitions = <<TASK_DEFINITION
@@ -29,16 +25,7 @@ resource "aws_ecs_task_definition" "hello_app_task_definition" {
     "memory": 1024,
     "image": "${format("%s%s",var.ecr_path,":latest")}",
     "essential": true,
-    "name": "hello",
-    "logConfiguration": {
-    "logDriver": "awslogs",
-    "secretOptions": null,
-    "options": {
-      "awslogs-group": "hello-app",
-      "awslogs-region": "us-east-1",
-      "awslogs-stream-prefix": "ecs"
-    }
-}
+    "name": "hello"
   }
 ]
 TASK_DEFINITION
