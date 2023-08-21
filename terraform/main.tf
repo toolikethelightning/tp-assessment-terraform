@@ -26,3 +26,11 @@ module "vpc" {
 module "ecr" {
   source = "./modules/ecr"
 }
+
+module "elb" {
+  source = "./modules/elb"
+  load_balancer_sg = module.vpc.load_balancer_sg
+  load_balancer_subnet_a = module.vpc.load_balancer_subnet_a
+  load_balancer_subnet_b = module.vpc.load_balancer_subnet_b
+  hello_vpc = module.vpc.hello_vpc
+}
