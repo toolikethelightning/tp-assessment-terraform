@@ -4,4 +4,7 @@ data "aws_availability_zones" "available" {
 
 resource "aws_vpc" "hello_vpc" {
   cidr_block = "192.0.0.0/16"
+  tags = {
+    Name = "hello_vpc"
+  }
 }
