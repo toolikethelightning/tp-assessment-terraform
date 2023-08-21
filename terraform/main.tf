@@ -22,3 +22,7 @@ data "aws_iam_role" "ecs_role" {
 module "vpc" {
   source = "./modules/vpc"
 }
+
+module "ecr" {
+  source = "./modules/ecr"
+}
