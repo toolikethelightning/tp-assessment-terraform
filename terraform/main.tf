@@ -18,3 +18,7 @@ terraform {
 data "aws_iam_role" "ecs_role" {
   name = "ecsTaskExecutionRole"
 }
+
+module "vpc" {
+  source = "./modules/vpc"
+}
