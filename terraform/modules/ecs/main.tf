@@ -26,7 +26,6 @@ resource "aws_ecs_task_definition" "hello_app_task_definition" {
     "image": "${format("%s%s",var.ecr_path,":latest")}",
     "essential": true,
     "name": "hello"
-}
   }
 ]
 TASK_DEFINITION
