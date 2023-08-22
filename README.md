@@ -1,3 +1,3 @@
 # TP Assessment Terraform
 
-I've left this README empty during the initial commit, to avoid this repo being identified.
+I've added a more detailed README in the [tp-assessment](https://github.com/toolikethelightning/tp-assessment) repo.
