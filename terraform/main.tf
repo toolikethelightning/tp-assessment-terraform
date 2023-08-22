@@ -45,8 +45,3 @@ module "ecs" {
   ecr_path = module.ecr.ecr_path
 }
 
-module "auto_scaling" {
-  source = "./modules/autoscaling"
-  ecs_cluster = module.ecs.ecs_cluster
-  ecs_service = module.ecs.ecs_service
-}
